@@ -15,6 +15,7 @@ const routes: Routes = [
 
     // localhost:4200/adresse
   {path: 'adresse', component: AdresseComponent},
+  {path: 'adresse/:rue/:ville', component: AdresseComponent},
   // localhost:4200/error
   {path: 'error', component: ErrorComponent},
   // pathMatch = 'full' signifie que tout chemin d'URL doit correspondre

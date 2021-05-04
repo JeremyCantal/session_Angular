@@ -47,7 +47,7 @@ export class StagiaireComponent implements OnInit {
 
       // 2) /chemin?nom=doe&prenom=john
 
-            // hhtp://localhost:4200/stagiaire?nom=Wick&prenom=John
+            // http://localhost:4200/stagiaire?nom=Wick&prenom=John
 
             // queryParams pour /chemin?nom=doe&prenom=john => snapshot
         
