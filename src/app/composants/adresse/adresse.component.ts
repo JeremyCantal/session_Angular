@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-adresse',
@@ -9,7 +9,12 @@ import { ActivatedRoute } from '@angular/router';
 export class AdresseComponent implements OnInit {
   rue: any;
   ville: any;
-  constructor(private route: ActivatedRoute) { }
+
+  nom = 'Snow';
+  prenom = 'John';
+
+
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
   
@@ -33,10 +38,17 @@ export class AdresseComponent implements OnInit {
 
     // Observables:
 
-      this.route.queryParamMap.subscribe(res => {
-      this.rue = res.get('rue');
-      this.ville = res.get('ville');
-      console.log(this.rue + " " + this.ville);
-    });
+      // this.route.queryParamMap.subscribe(res => {
+      // this.rue = res.get('rue');
+      // this.ville = res.get('ville');
+      // console.log(this.rue + " " + this.ville);
+    // });
+  }
+
+
+  goToStagiaire(){
+    // this.router.navigateByUrl("/stagiaire/" + this.nom + "/" + this.prenom);
+    // ou =>
+    this.router.navigate(['/stagiaire', this.nom, this.prenom]);
   }
 }

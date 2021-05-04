@@ -30,20 +30,20 @@ export class StagiaireComponent implements OnInit {
 
             // Solution avec les snapshots (Instantané) :
 
-            // this.nom = this.route.snapshot.params.nom;
-            // this.prenom = this.route.snapshot.params.prenom;
-            // console.log(this.nom + " " + this.prenom);
+            this.nom = this.route.snapshot.params.nom;
+            this.prenom = this.route.snapshot.params.prenom;
+            console.log(this.nom + " " + this.prenom);
 
 
             //Solution avec les observables
             //Ils emettent des events qui seront interceptés par des observateurs (observers)
             // observable = 'this.route.paramMap.suscribe(observers) :
 
-            this.route.paramMap.subscribe(res => {
-              this.nom = res.get('nom');
-              this.prenom = res.get('prenom');
-              console.log(this.nom + " " + this.prenom);
-            });
+            // this.route.paramMap.subscribe(res => {
+            //   this.nom = res.get('nom');
+            //   this.prenom = res.get('prenom');
+            //   console.log(this.nom + " " + this.prenom);
+            // });
 
       // 2) /chemin?nom=doe&prenom=john
 
@@ -62,10 +62,10 @@ export class StagiaireComponent implements OnInit {
 
             //Solution avec les observables
 
-            this.route.queryParamMap.subscribe(res => {
-              this.nom = res.get('nom');
-              this.prenom = res.get('prenom');
-              console.log(this.nom + " " + this.prenom);
-            });
+            // this.route.queryParamMap.subscribe(res => {
+            //   this.nom = res.get('nom');
+            //   this.prenom = res.get('prenom');
+            //   console.log(this.nom + " " + this.prenom);
+            // });
   }
 }

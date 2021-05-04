@@ -7,6 +7,8 @@ import { HomeComponent } from './composants/home/home.component';
 import { AdresseComponent } from './composants/adresse/adresse.component';
 import { StagiaireComponent } from './composants/stagiaire/stagiaire.component';
 import { ErrorComponent } from './composants/error/error.component';
+import { TemplateFormComponent } from './composants/formulaires/template-form/template-form.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,11 +16,13 @@ import { ErrorComponent } from './composants/error/error.component';
     HomeComponent,
     AdresseComponent,
     StagiaireComponent,
-    ErrorComponent
+    ErrorComponent,
+    TemplateFormComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
