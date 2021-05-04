@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdresseComponent } from './composants/adresse/adresse.component';
+import { CalculetteComponent } from './composants/calculette/calculette.component';
 import { ErrorComponent } from './composants/error/error.component';
 import { TemplateFormComponent } from './composants/formulaires/template-form/template-form.component';
 import { HomeComponent } from './composants/home/home.component';
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: 'template-form', component: TemplateFormComponent},
     // localhost:4200/adresse
   {path: 'adresse', component: AdresseComponent},
+  {path: 'calculette', component: CalculetteComponent},
   {path: 'adresse/:rue/:ville', component: AdresseComponent},
   // localhost:4200/error
   {path: 'error', component: ErrorComponent},

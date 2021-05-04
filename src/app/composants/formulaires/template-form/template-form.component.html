@@ -19,7 +19,10 @@
 </form>
 <div class="container">
     <h5>Personnes :</h5>
-    <ul id="listePersonnes">
-
+    <ul>
+        <li *ngFor="let elt of personnes">
+            {{ elt.nom }} {{ elt.prenom }}
+            <button (click)=supprimerPersonne(elt)>Supprimer</button>
+        </li>
     </ul>
 </div>

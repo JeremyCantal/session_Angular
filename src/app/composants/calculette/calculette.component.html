@@ -1,0 +1,16 @@
+<h2>Calculatrice</h2>
+
+<div>
+    <input type="number" name="nbr1" [(ngModel)]="nbr1">
+    <input type="number" name="nbr2" [(ngModel)]="nbr2">
+</div>
+
+<div>
+    <button (click)="additionnerNumbers()">+</button>
+    <button (click)="soustraireNumbers()">-</button>
+    <button (click)="multiplierNumbers()">*</button>
+    <button (click)="diviserNumbers()">/</button>
+</div>
+<div>
+    <p>{{ res }}</p>
+</div>
