@@ -1,4 +1,4 @@
-<form #myForm="ngForm" (ngSubmit)=ajouterPersonne()> 
+<form #myForm="ngForm" (ngSubmit)=ajouterPersonne(myForm)> 
     <div>
         Nom :<input type="text" name="nom" [(ngModel)]="personne.nom" required #nom="ngModel">
     </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Personne } from 'src/app/interfaces/personne';
 
 @Component({
@@ -19,10 +20,12 @@ personne: Personne = {};
   ngOnInit(): void {
   }
 
-  ajouterPersonne(){
-    this.personnes.push({ ...this.personne});
-    this.personne.nom = '';
-    this.personne.prenom = '';
+  ajouterPersonne(myForm: NgForm){
+    this.personnes.unshift({ ...this.personne}); // ' ...' => spread, unshift fait comme push() mais en ajoutant le dernier élément au dessus
+    // this.personne.nom = ''; // Remet les imput vide
+    // this.personne.prenom = ''; // Remet les imput vide
+    myForm.form.markAsPristine();
+    myForm.form.reset();
     console.log(this.personnes);
   }
 

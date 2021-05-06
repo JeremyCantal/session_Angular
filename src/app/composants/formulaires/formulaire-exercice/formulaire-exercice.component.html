@@ -1,0 +1,82 @@
+<form [formGroup]="profil" (ngSubmit)="afficherTout()">
+    <h3>Qui es-tu ?</h3>
+    <div class="form-group">
+        <label for="nom">Ton nom :</label>
+        <input class="form-control" type="text" name="nom" formControlName="nom">
+    </div>
+    <div *ngIf="profil.controls['nom'].invalid && (profil.controls['nom'].dirty || profil.controls['nom'].touched)"
+        class="alert alert-danger">
+        <div *ngIf="profil.controls['nom'].errors?.required">
+            Le nom est obligatoire
+        </div>
+        <div *ngIf="profil.controls['nom'].errors?.erreur">
+            Premiere lettre en majuscule et compris entre 3 et 11 caractères
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="prenom">Ton prenom :</label>
+        <input class="form-control" type="text" name="prenom" formControlName="prenom">
+    </div>
+    <div *ngIf="profil.controls['prenom'].invalid && (profil.controls['prenom'].dirty || profil.controls['prenom'].touched)"
+        class="alert alert-danger">
+        <div *ngIf="profil.controls['prenom'].errors?.required">
+            Le prenom est obligatoire
+        </div>
+        <div *ngIf="profil.controls['prenom'].errors?.erreur">
+            Premiere lettre en majuscule
+        </div>
+    </div>
+
+    <div formArrayName="commentaires">
+        <h3 style="display: contents;">Commentaires </h3>
+        <button class="btn btn-primary" type=button (click)="ajouterCommentaire()">
+            Ajouter un commentaire
+        </button>
+        <div *ngFor="let commentaire of commentaires.controls; let i= index"[formGroupName]="i">
+            <div class="form-group">
+                <label for="titre">Titre :</label>
+                <input class="form-control" placeHolder="Titre" name="titre" type="text" formControlName="titre">
+            </div>
+            <div class="form-group">
+                <label for="cat">Catégorie :</label>
+                <input class="form-control" placeHolder="Catégorie" name="cat" type="text" formControlName="cat">
+            </div>
+            <div class="form-group">
+                <label for="contenu">Contenu :</label>
+                <input class="form-control" placeHolder="Contenu" name="contenu" type="text" formControlName="contenu">
+            </div>
+            <div>
+                <button class="btn btn-danger" type=button (click)="supprimerCommentaire(i)">
+                    Supprimer le commentaire
+                </button>
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]="!profil.valid">
+        Publier
+    </button>
+</form>
+
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Prenom</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Commentaire</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let elt of profils;">
+            <tr>
+                <td>{{ elt.prenom }}</td>
+                <td>{{ elt.nom }}</td>
+                <span *ngFor="let subItem of elt.commentaires">
+                    <td>{{ subItem.titre }}</td>
+                    <td>{{ subItem.cat }}</td>
+                    <td>{{ subItem.contenu }}</td>
+                </span>
+            </tr>
+        </tbody>
+    </table>
+</div>

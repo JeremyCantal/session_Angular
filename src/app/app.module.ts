@@ -8,8 +8,10 @@ import { AdresseComponent } from './composants/adresse/adresse.component';
 import { StagiaireComponent } from './composants/stagiaire/stagiaire.component';
 import { ErrorComponent } from './composants/error/error.component';
 import { TemplateFormComponent } from './composants/formulaires/template-form/template-form.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CalculetteComponent } from './composants/calculette/calculette.component';
+import { ReactiveFormComponent } from './composants/formulaires/reactive-form/reactive-form.component';
+import { FormulaireExerciceComponent } from './composants/formulaires/formulaire-exercice/formulaire-exercice.component';
 
 
 @NgModule({
@@ -21,11 +23,14 @@ import { CalculetteComponent } from './composants/calculette/calculette.componen
     ErrorComponent,
     TemplateFormComponent,
     CalculetteComponent,
+    ReactiveFormComponent,
+    FormulaireExerciceComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
